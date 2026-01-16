@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+void ReadNumbers(int& Num1, int& Num2, int& Num3 , int &Num4) {
+    cout << "Please enter Num 1: ";
+    cin >> Num1;
+    cout << "Please enter Num 2: ";
+    cin >> Num2;
+    cout << "Please enter Num 3: ";
+    cin >> Num3;
+    cout << "Please enter Num 4: ";
+    cin >> Num4;
+}
+
+void VerifyLargestSmallest(int& Num1, int& Num2, int& Num3, int& Num4, int& Largest, int& Smallest) {
+     Largest = Num1;
+    if (Num2 >Largest) Largest = Num2;
+    if (Num3 > Largest) Largest = Num3;
+    if (Num4 > Largest) Largest = Num4;
+
+     Smallest = Num1;
+    if (Num2 < Smallest) Smallest = Num2;
+    if (Num3 < Smallest) Smallest = Num3;
+    if (Num4 < Smallest) Smallest = Num4;
+
+}
+int CalculateDifferance(int Largest, int Smallest) {
+    int Result =  Largest - Smallest;
+    return Result;
+}
+void Print(int Result) {
+    cout << " differans between Largest And Smallest is : " << Result << " And its  : ";
+    if (Result > 10) cout << " VERY BIG DIFFERANCE ! ";
+    else if (Result >= 5 && Result <= 10 ) cout << " AVERAGE DIFFERANCE ! ";
+    else  cout << " SMALL DIFFERANCE ! ";
+    cout << endl;
+}
+
+int main() {
+    int Num1, Num2, Num3, Num4;
+    int Largest, Smallest;
+
+    ReadNumbers(Num1, Num2, Num3, Num4);
+
+    VerifyLargestSmallest(Num1, Num2, Num3, Num4, Largest, Smallest);
+ 
+   int Result =  CalculateDifferance(Largest, Smallest);
+
+   Print(Result);
+
+    return 0;
+}
